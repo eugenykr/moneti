@@ -1,0 +1,41 @@
+{
+  "name": "prodat-moneti",
+  "version": "0.9.0",
+  "description": "prodat-moneti website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eugenykr",
+  "devDependencies": {
+    "del": "^6.0.0",
+    "event-stream": "^4.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cheerio": "^1.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-filter": "^6.0.0",
+    "gulp-import-css": "^0.1.3",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-main-bower-files": "^1.8.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svgmin": "^4.1.0",
+    "gulp-svgstore": "^9.0.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.6",
+    "gulp4-run-sequence": "^1.0.1",
+    "main-bower-files": "^2.13.3",
+    "node-bourbon": "^4.2.8",
+    "relative-path": "^1.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "gulp-merge": "^0.1.1",
+    "slim-select": "^1.27.1"
+  }
+}

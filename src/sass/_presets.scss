@@ -1,0 +1,21 @@
+/*---------------------------------------------------------
+ Presets (_presets.scss)
+-------------------------------------------------------- */
+
+//@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
+:root {
+	--font-regular: 'Ubuntu Regular';
+	--font-light: 'Ubuntu Light';
+	--font-bold: 'Ubuntu Bold';
+	--color-white: #FFFFFF;
+	--color-black: #000000;
+	--color-darkblue: #00042F;
+	--color-blue: #252D7C;
+	--color-blue-hover: #333C95;
+	--color-yellow: #D29E3E;
+	--color-red: #D80000;
+}
+
+//Vars
+$gap: 40px;
