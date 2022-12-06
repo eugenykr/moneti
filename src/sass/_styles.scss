@@ -1,4 +1,4 @@
-//@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 html,
 body {
@@ -94,7 +94,7 @@ a {
   }
   &__submenu {
     background: #fff;
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 10px;
     position: absolute;
     left: 0;
@@ -102,7 +102,6 @@ a {
     margin: 0;
     margin-top: 10px;
     transition: all 200ms ease-in;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     opacity: 0;
     visibility: hidden;
     overflow: auto;
@@ -121,12 +120,11 @@ a {
       width: 100%;
       margin: 0 0 24px;
       ul {
-        margin: 0 0 0 10px;
         padding: 0;
         li {
-          font-size: 14px;
+          font-size: 16px;
           font-weight: 400;
-          line-height: 16px;
+          line-height: 22px;
           list-style: none;
           margin: 0 0 4px;
           a {
@@ -142,7 +140,6 @@ a {
       line-height: 18px;
       padding: 0 0 8px;
       margin: 0 0 10px;
-      border-bottom: 1px solid #e3e3e3;
       a {
         color: #252525;
         text-decoration: none;
@@ -224,6 +221,14 @@ section {
 
 }
 
+.section-guarantees {
+  &__right {
+    border: 2px solid var(--color-blue);
+    border-radius: 10px;
+    padding: $gap;
+    height: fit-content;
+  }
+}
 
 .info-cards {
   display: flex;
@@ -331,26 +336,31 @@ section {
     align-items: center;
     border: 2px solid var(--color-blue);
     border-radius: 10px;
-    padding: 200px $gap $gap;
+    padding: $gap;
     position: relative;
-    &-img {
-      position: absolute;
-      top: -160px;
-      img {
-        height: 320px;
-        border-radius: 50%;
-        display: block;
-        position: relative;
-      }
-      &:before {
-        content: "";
+  }
+  &_experts {
+    .content-switcher__content-item {
+      padding: 200px $gap $gap;
+      &-img {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 2px solid var(--color-blue);
-        border-radius: 50%;
-        top: -20px;
-        right: -20px;
+        top: -160px;
+        img {
+          height: 320px;
+          border-radius: 50%;
+          display: block;
+          position: relative;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 2px solid var(--color-blue);
+          border-radius: 50%;
+          top: -20px;
+          right: -20px;
+        }
       }
     }
   }
@@ -475,4 +485,95 @@ section {
   div:nth-child(7) { grid-area: 3 / 2 / 4 / 3; }
   div:nth-child(8) { grid-area: 3 / 3 / 4 / 4; }
   div:nth-child(9) { grid-area: 3 / 4 / 4 / 5; }
+}
+.map {
+  position: relative;
+  &__info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 10px 0;
+    background-color: white;
+    width: 35%;
+    padding: $gap;
+    text-align: justify;
+    &-title {
+        font-family: var(--font-bold);
+        font-size: 24px;
+        margin-bottom: $gap/2;
+    }
+    &-text {
+      font-size: 16px;
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.coins-list {
+  .row {
+    justify-content: space-between;
+  }
+  &__item {
+    position: relative;
+    &:before {
+      content: "";
+      margin-top: calc(40px + 170px / 2);
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      background-color: var(--color-blue);
+    }
+  }
+  &__coin {
+    border: 2px solid var(--color-blue);
+    border-radius: 10px;
+    padding: $gap;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-family: var(--font-bold);
+    position: relative;
+    z-index: 5;
+    &-number {
+      font-size: 42px;
+      line-height: 42px;
+      padding: 20px;
+      color: var(--color-blue);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &-price {
+      color: var(--color-yellow);
+    }
+    &-image {
+      margin-bottom: $gap;
+      height: 170px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      background-color: white;
+      border-radius: 20px;
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+  &__description {
+    margin-top: calc(10px + 170px / 2);
+    background-color: white;
+    z-index: 5;
+    position: relative;
+    padding: 0 10px;
+  }
+}
+
+ul.marker-oval {
+  list-style-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='8.60662' cy='8.00016' rx='5' ry='10' transform='rotate(45 8.60662 8.00016)' fill='%23252D7C'/%3E%3C/svg%3E%0A");
 }
