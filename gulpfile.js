@@ -39,7 +39,10 @@ var changeEvent = function(evt) {
 
 //js
 gulp.task('build-js', function() {
-    var appFiles = [basePaths.src+'js/*.js'];
+    var appFiles = [
+        'node_modules/jquery/dist/jquery.min.js',
+        basePaths.src+'js/*.js',
+    ];
 
     return gulp.src(appFiles, {allowEmpty: true})
         .pipe(plugins.concat('bundle.js'))

@@ -17,5 +17,26 @@
 	--color-red: #D80000;
 }
 
-//Vars
-$gap: 40px;
+//Page layout
+$col:		     52px;
+$gap:	         32px;
+
+$breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+);
+$container: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1320px
+);
+
+//@function padding-fs($w) {
+//	@return ( 100vw - map-get($container, $w) ) / 2;
+//}
