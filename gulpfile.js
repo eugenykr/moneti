@@ -57,7 +57,10 @@ gulp.task('build-css', function() {
     var paths = require('node-bourbon').includePaths;
     var vendorFiles = gulp.src([
                         basePaths.src + 'css/*.css'], {allowEmpty: true}),
-        appFiles = gulp.src([basePaths.src+'sass/main.scss'])
+        appFiles = gulp.src([
+            'node_modules/bootstrap/dist/css/bootstrap.css',
+            basePaths.src+'sass/main.scss'
+        ])
         .pipe(!isProduction ? plugins.sourcemaps.init() : gutil.noop())
         .pipe(plugins.sass({
                 outputStyle: sassStyle,

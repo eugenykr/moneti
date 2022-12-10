@@ -5,9 +5,7 @@
 //@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
 
 :root {
-	--font-regular: 'Ubuntu Regular';
-	--font-light: 'Ubuntu Light';
-	--font-bold: 'Ubuntu Bold';
+	--font-primary: 'Ubuntu';
 	--color-white: #FFFFFF;
 	--color-black: #000000;
 	--color-darkblue: #00042F;
@@ -17,9 +15,17 @@
 	--color-red: #D80000;
 }
 
+$white: var(--color-white);
+$black: var(--color-black);
+$darkblue: var(--color-darkblue);
+$blue: var(--color-blue);
+$blue-hover: var(--color-blue-hover);
+$yellow: var(--color-yellow);
+$red: var(--color-red);
+
 //Page layout
-$col:		     52px;
-$gap:	         32px;
+$col: 52px;
+$gap: 32px;
 
 $breakpoints: (
 	xs: 0,

@@ -1,34 +1,37 @@
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+//@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 html,
 body {
-  font-family: var(--font-regular);
+  font-family: var(--font-primary);
   font-size: 16px;
-  color: var(--color-darkblue);
+  color: $darkblue;
 }
 
 a {
-  color: var(--color-blue);
+  color: $blue;
   text-decoration: none;
   &:hover {
-    color: var(--color-blue-hover);
+    color: $blue-hover;
+  }
+  &:after {
+    transition: all .2s ease-in;
   }
 }
 
 .btn {
-  padding: 12px 28px;
-  line-height: 23px;
-  font-size: 20px;
+  padding: 10px 22px;
+  line-height: 18px;
+  font-size: 16px;
   &-white {
-    border: 1px solid var(--color-blue);
+    border: 1px solid $blue;
     border-radius: 10px;
-    color: var(--color-blue);
+    color: $blue;
     &.btn-with-arrow {
       background-image: url(../svg/icon-arrow-blue.svg);
     }
     &:hover {
-      color: var(--color-white);
-      background-color: var(--color-blue);
+      color: $white;
+      background-color: $blue;
       &.btn-with-arrow {
         background-image: url(../svg/icon-arrow-white.svg);
       }
@@ -37,7 +40,7 @@ a {
   &.btn-with-arrow {
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) calc(100% - 20px);
-    background-size: 60px;
+    background-size: 47px;
   }
 }
 
@@ -50,17 +53,33 @@ a {
     position: relative;
   }
   &__logo {
+    z-index: 9;
     img {
-      max-height: 53px;
-      max-width: 200px;
+      max-height: 42px;
+      max-width: 158px;
     }
   }
   &__search-button {
     background: url(../svg/icon-search.svg);
-    width: 32px;
-    height: 32px;
+    width: 25px;
+    height: 25px;
     background-repeat: no-repeat;
     background-position: center;
+  }
+  &__phone {
+    a {
+      color: $darkblue;
+    }
+  }
+  &-right {
+    display: flex;
+    align-items: center;
+    z-index: 9;
+    > div {
+      &:not(:last-child) {
+        margin-right: $gap;
+      }
+    }
   }
 }
 
@@ -68,39 +87,64 @@ a {
   display: flex;
   margin: 0;
   padding: 3px 0;
+  a {
+    font-size: 16px;
+  }
   &__parent {
     list-style: none;
     font-size: 18px;
     font-weight: 300;
     line-height: 20px;
+    &:not(:last-child) {
+      margin-right: $gap/2;
+    }
     > a {
       font-weight: 400;
-      border-radius: 4px;
       display: flex;
-      padding: 4px 18px;
-      height: 44px;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       text-align: center;
+      color: $darkblue;
       transition: all 200ms ease-in;
+      &:after {
+        background-image: url(../svg/icon-arrow-down.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        display: inline-block;
+        vertical-align: middle;
+        width: 10px;
+        height: 6px;
+        content: "";
+        margin-left: 8px;
+        margin-top: 4px;
+      }
     }
     &:hover {
       .navmenu__submenu {
         opacity: 1;
         visibility: visible;
       }
+      a {
+        &:after {
+          transform: scale(1, -1);
+        }
+      }
+    }
+    &:hover > a,
+    &:active > a {
+      color: $blue;
     }
   }
   &__submenu {
     background: #fff;
-    padding: 20px 0;
+    padding: $gap*2 $gap/2 0;
     border-radius: 10px;
     position: absolute;
     left: 0;
     width: 100%;
     margin: 0;
-    margin-top: 10px;
     transition: all 200ms ease-in;
     opacity: 0;
     visibility: hidden;
@@ -126,7 +170,7 @@ a {
           font-weight: 400;
           line-height: 22px;
           list-style: none;
-          margin: 0 0 4px;
+          margin: 0 0 $gap/4;
           a {
             text-decoration: none;
             font-weight: 500;
@@ -138,8 +182,7 @@ a {
       font-weight: 500;
       font-size: 16px;
       line-height: 18px;
-      padding: 0 0 8px;
-      margin: 0 0 10px;
+      margin: 0 0 $gap;
       a {
         color: #252525;
         text-decoration: none;
@@ -154,7 +197,7 @@ section {
     font-size: 50px;
     line-height: 58px;
     margin-bottom: $gap/2;
-    font-family: var(--font-bold);
+    font-weight: bold;
   }
   .description {
 
@@ -167,39 +210,41 @@ section {
     }
     &__button {
       padding: $gap/2;
-      padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       width: calc(100%/2 - 20px);
       &-title {
-        font-size: 32px;
-        font-family: var(--font-bold);
+        font-size: 25px;
+        font-weight: bold;
         margin-bottom: 10px;
-        line-height: 37px;
+        line-height: 29px;
       }
       &-info {
-        line-height: 23px;
+        line-height: 18px;
       }
     }
     &__text {
-      font-family: var(--font-bold);
-      color: var(--color-darkblue);
+      font-weight: bold;
+      color: $darkblue;
+      margin: 95px 0 225px;
       > span {
         display: block;
       }
       &-black {
-        font-size: 64px;
-        line-height: 74px;
+        font-size: 50px;
+        line-height: 57px;
       }
       &-large {
-        font-size: 128px;
-        line-height: 147px;
-        color: var(--color-blue);
+        font-size: 100px;
+        line-height: 116px;
+        color: $blue;
       }
       &-small {
-        font-family: var(--font-regular);
-        font-size: 20px;
+        font-weight: 300;
+        line-height: 140%;
+        padding-top: $gap/2;
+        width: 50%;
       }
     }
   }
@@ -207,14 +252,22 @@ section {
 
 .section {
   &-blue {
-    background-color: var(--color-blue);
-    color: var(--color-white);
+    background-color: $blue;
+    color: $white;
   }
 }
 .section-valuation {
-  padding: $gap*5 0;
   .info-cards {
-    margin-block: $gap*1.5;
+    margin-top: $gap*1.5;
+  }
+}
+
+.section-experts {
+  .description {
+    padding-top: $gap/2;
+  }
+  .content-switcher {
+    margin-top: $gap*3;
   }
 }
 .section-slider {
@@ -223,11 +276,15 @@ section {
 
 .section-guarantees {
   &__right {
-    border: 2px solid var(--color-blue);
+    border: 2px solid $blue;
     border-radius: 10px;
     padding: $gap;
     height: fit-content;
   }
+}
+
+.sec-sp {
+  padding: $gap*5 0;
 }
 
 .info-cards {
@@ -236,24 +293,24 @@ section {
   justify-content: space-between;
   align-items: center;
   &__item {
-    background-color: var(--color-white);
-    padding: 24px 24px 24px 40px;
+    background-color: $white;
+    padding: 18px 18px 18px $gap;
     width: calc( (55% - 20px * 3) / 3);
     height: 200px;
     &-number, &-title {
-      color: var(--color-yellow);
-      font-family: var(--font-bold);
-      font-size: 32px;
-      line-height: 37px;
+      color: $yellow;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 29px;
     }
     &-number {
 
     }
     &-title {
-
+        margin-bottom: $gap/4;
     }
     &-desc {
-      color: var(--color-black);
+      color: $black;
       opacity: 0;
       visibility: hidden;
     }
@@ -289,19 +346,21 @@ section {
 .content-switcher {
   &__menu-item {
     position: relative;
-    color: var(--color-darkblue);
+    display: block;
+    color: $darkblue;
+    cursor: pointer;
     &.active {
-      color: var(--color-blue);
+      color: $blue;
       .content-switcher__menu-item-title {
         position: relative;
-        padding-bottom: 10px;
+        padding-bottom: $gap*0.75;
         &:before {
           content: "";
           display: block;
           width: 100%;
           height: 2px;
-          background-color: var(--color-blue);
-          bottom: 1px;
+          background-color: $blue;
+          bottom: 12px;
           position: absolute;
         }
       }
@@ -324,29 +383,36 @@ section {
       background-size: contain;
     }
     &-title {
-      font-size: 32px;
-      line-height: 37px;
+      font-size: 25px;
+      line-height: 29px;
+      padding-bottom: 12px;
       position: relative;
-      font-family: var(--font-bold);
+      font-weight: bold;
+    }
+    &:not(:last-child) {
+      margin-bottom: $gap*2.5;
     }
   }
-  &__content-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 2px solid var(--color-blue);
-    border-radius: 10px;
-    padding: $gap;
-    position: relative;
+  &__content {
+    margin-top: 36px;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px solid $blue;
+      border-radius: 10px;
+      padding: $gap;
+      position: relative;
+    }
   }
   &_experts {
     .content-switcher__content-item {
       padding: 200px $gap $gap;
       &-img {
         position: absolute;
-        top: -160px;
+        top: -150px;
         img {
-          height: 320px;
+          height: 300px;
           border-radius: 50%;
           display: block;
           position: relative;
@@ -356,7 +422,7 @@ section {
           position: absolute;
           width: 100%;
           height: 100%;
-          border: 2px solid var(--color-blue);
+          border: 2px solid $blue;
           border-radius: 50%;
           top: -20px;
           right: -20px;
@@ -375,7 +441,7 @@ section {
   &:after {
     content: "";
     position: absolute;
-    background-color: var(--color-blue);
+    background-color: $blue;
     display: block;
     height: 400px;
     width: 400px;
@@ -391,8 +457,8 @@ section {
   }
   &__pagination {
     z-index: 5;
-    color: var(--color-white);
-    font-family: var(--font-bold);
+    color: $white;
+    font-weight: bold;
     display: flex;
     align-items: center;
     margin: $gap/2 0 $gap*1.5;
@@ -457,7 +523,7 @@ section {
   gap: 20px;
   height: 100%;
   &__item {
-    border: 1px solid var(--color-black);
+    border: 1px solid $black;
     border-radius: 10px;
     padding: $gap/2;
     display: flex;
@@ -498,7 +564,7 @@ section {
     padding: $gap;
     text-align: justify;
     &-title {
-        font-family: var(--font-bold);
+        font-weight: bold;
         font-size: 24px;
         margin-bottom: $gap/2;
     }
@@ -523,31 +589,31 @@ section {
       width: 100%;
       height: 2px;
       position: absolute;
-      background-color: var(--color-blue);
+      background-color: $blue;
     }
   }
   &__coin {
-    border: 2px solid var(--color-blue);
+    border: 2px solid $blue;
     border-radius: 10px;
     padding: $gap;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    font-family: var(--font-bold);
+    font-weight: bold;
     position: relative;
     z-index: 5;
     &-number {
       font-size: 42px;
       line-height: 42px;
       padding: 20px;
-      color: var(--color-blue);
+      color: $blue;
       position: absolute;
       top: 0;
       left: 0;
     }
     &-price {
-      color: var(--color-yellow);
+      color: $yellow;
     }
     &-image {
       margin-bottom: $gap;
@@ -646,7 +712,7 @@ ul.marker-oval {
     background: #FFF;
     border-radius: 0 5px 5px 5px;
     padding: 7px 15px;
-    color: var(--color-black);
+    color: $black;
     &.active {
       display: block;
     }
@@ -665,14 +731,14 @@ ul.marker-oval {
     align-items: flex-start;
     padding-left: calc( (100vw - 1340px) / 2);
     .reviews__item {
-      border: 2px solid var(--color-blue);
+      border: 2px solid $blue;
       border-radius: 8px;
       padding: $gap;
       min-width: 45%;
       margin-right: $gap;
       &-name {
-        font-family: var(--font-bold);
-        color: var(--color-blue);
+        font-weight: bold;
+        color: $blue;
         font-size: 25px;
       }
     }
@@ -683,8 +749,8 @@ ul.marker-oval {
   margin: 0 0 $gap;
   &-name {
     font-size: 25px;
-    font-family: var(--font-bold);
-    color: var(--color-blue);
+    font-weight: bold;
+    color: $blue;
     line-height: 29px;
     position: relative;
     cursor: pointer;
@@ -720,8 +786,8 @@ ul.marker-oval {
 
 .footer {
   padding: 4px 0 40px;
-  background-color: var(--color-darkblue);
-  color: var(--color-white);
+  background-color: $darkblue;
+  color: $white;
   &-title {
     margin: 0;
     position: relative;
