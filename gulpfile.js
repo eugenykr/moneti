@@ -41,6 +41,7 @@ var changeEvent = function(evt) {
 gulp.task('build-js', function() {
     var appFiles = [
         'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/endless-river/endless-river.min.js',
         basePaths.src+'js/*.js',
     ];
 
@@ -59,6 +60,7 @@ gulp.task('build-css', function() {
                         basePaths.src + 'css/*.css'], {allowEmpty: true}),
         appFiles = gulp.src([
             'node_modules/bootstrap/dist/css/bootstrap.css',
+            'node_modules/endless-river/endless-river.min.css',
             basePaths.src+'sass/main.scss'
         ])
         .pipe(!isProduction ? plugins.sourcemaps.init() : gutil.noop())

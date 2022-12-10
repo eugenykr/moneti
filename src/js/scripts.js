@@ -24,4 +24,38 @@ $(document).ready(function() {
         }
         return false;
     });
+
+    $('.content-switcher__menu-item').on('click', function () {
+       $(this).parents('.content-switcher')
+           .find('.content-switcher__menu-item').removeClass('active').end()
+           .find('.content-switcher__content-item').removeClass('active')
+           .eq($(this).index()).addClass('active');
+       $(this).addClass('active');
+    });
+
+    // $(window).on('resize scroll', function() {
+    //     var reviews = $(".reviews ul");
+    //     if ((reviews).isInViewport()) {
+    //         reviews.endlessRiver({
+    //             speed: 5,
+    //             pause:true,
+    //         });
+    //     }
+    // });
+
+    var reviews = $(".reviews ul");
+    reviews.endlessRiver({
+        speed: 20,
+        pause:true,
+    });
+
+    $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
 });
